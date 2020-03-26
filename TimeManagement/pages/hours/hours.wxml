@@ -1,0 +1,76 @@
+<!--pages/hours/hours.wxml-->
+
+<import src="../../template/template.wxml"/>
+
+<view id="container">
+	<view id="top">
+      <button id="add" bindtap="powerDrawer" data-statu="open">刷新</button>
+    	<!-- <view id="month">{{month}}</view>
+	    <view id="year">{{year}}</view> -->
+	    <!-- <view id="showWeek">
+		<view class="week" style='color:rgb(239,50,6);'></view>
+      	<view class='week' wx:for="{{weeklist}}" wx:key="item">{{item}}</view>
+    	</view> -->
+  	</view>
+    <!--轮播的skiper，营造无限长的日历效果-->
+  	<swiper id="body" bindchange='changeDate' circular="true">
+    	<swiper-item>
+    		<template is="calendar" data="{{...datasec}}" />
+      	</swiper-item>
+    	<!-- <swiper-item>
+    		<template is="calendar" data="{{...post}}" />
+      	</swiper-item>
+    	<swiper-item>
+    		<template is="calendar" data="{{...pre}}" />
+        </swiper-item> -->
+  	</swiper>
+
+  	<!-- <view id="footer">
+  		<view id = "agenda" class="choose">日程</view>
+  		<view class="choose" id="add" bindtap="powerDrawer" data-statu="open">+</view>
+  		<view id = "duty" class="choose" bindtap='changePage'>任务</view>
+  	</view> -->
+</view>
+
+
+<!--添加页面-->  
+<view class="drawer_screen" bindtap="powerDrawer" data-statu="close" wx:if="{{showModalStatus}}"></view>  
+<!--content-->  
+<!--使用animation属性指定需要执行的动画-->  
+<view animation="{{animationData}}" class="drawer_box" wx:if="{{showModalStatus}}">  
+  <view class="drawer_content">  
+  	<view class = "chooseAdd" data-status="true" bindtap="changeAdd" style="border-right-width: 2rpx; border-right-style: solid; border-right-color: gray; color: {{showChoose? 'rgb(62,168,244)':'black'}};">日程</view>
+  	<view class = "chooseAdd" data-status="false" bindtap="changeAdd" style="color: {{showChoose? 'black':'rgb(62,168,244)'}};">任务</view>
+  	<view wx:if="{{showChoose}}">
+	    <form bindsubmit='saveEvent' style="float: left;">
+	    	<input name='name' placeholder ="日程主题" class="col0" placeholder-style="text-align: center; font-size: 30rpx;" style=" border-radius: 15rpx; text-align: center; border: 2rpx solid; border-color:{{isFocus? 'rgb(62,168,244)':'rgb(125,159,195)'}};" bindfocus='getFocus' bindblur = 'loseFocus'></input>
+        <picker name='start' mode="date" class="col0" value="{{startDate}}" start="2015-09-01" end="2050-09-01" bindchange = 'startDate'>  
+        	<view class="picker" style="margin-left: 10rpx;font-size: 35rpx;">起始日期 ：<text style="margin-left: 25rpx; color: rgb(62,168,244);">{{startDate}}</text></view>
+        </picker>
+      	<picker  name = 'finish' mode="date" class="col0" value="{{finshDate}}" start="2015-09-01" end="2050-09-01" bindchange = 'finshDate'>  
+        	<view class="picker" style="margin-left: 10rpx; font-size: 35rpx;">终止日期 ：<text style="margin-left: 25rpx; color: rgb(62,168,244);">{{finshDate}}</text></view>
+        </picker>
+  			<view class="color" bindtap='changeColor' data-color='1' style="border:4rpx solid; border-color: {{chooseColor == 1?'rgb(62,168,244)':'white'}}; background: rgb(62,168,244);"></view>
+  			<view class="color" bindtap='changeColor' data-color='2' style="border:4rpx solid; border-color: {{chooseColor == 2?'rgb(186,127,208)':'white'}}; background: rgb(186,127,208);"></view>
+  			<view class="color" bindtap='changeColor' data-color='3' style="border:4rpx solid; border-color: {{chooseColor == 3?'rgb(246,49,62)':'white'}}; background: rgb(246,49,62);"></view>
+  			<view class="color" bindtap='changeColor' data-color='4' style="border:4rpx solid; border-color: {{chooseColor == 4?'rgb(113,212,73)':'white'}}; background: rgb(113,212,73);"></view>	
+  			<view class="color" bindtap='changeColor' data-color='5' style="border:4rpx solid; border-color: {{chooseColor == 5?'rgb(254,75,0)':'white'}}; background: rgb(254,75,0);"></view>
+  			<view class="color" bindtap='changeColor' data-color='6' style="border:4rpx solid; border-color: {{chooseColor == 6?'rgb(125,159,195)':'white'}}; background: rgb(125,159,195);"></view>
+  			<view class="color" bindtap='changeColor' data-color='7' style="border:4rpx solid; border-color: {{chooseColor == 7?'rgb(252,145,162)':'white'}}; background: rgb(252,145,162);"></view>
+  			<view class="color" bindtap='changeColor' data-color='8' style="border:4rpx solid; border-color: {{chooseColor == 8?'rgb(104,200,185)':'white'}}; background: rgb(104,200,185);"></view>	
+  			<button class="btn_ok" form-type="submit" bindtap="powerDrawer" data-statu="close">确定</button>  
+	    </form>
+	   </view>
+     <!--以下为添加任务页面-->
+     <view wx:if="{{!showChoose}}">
+     <form bindsubmit='saveEventB' style="float: left;">
+     <view style='height:20rpx;'></view>
+        <input name='dutyname' placeholder ="任务名称" class="col0" placeholder-style="text-align: center; font-size: 30rpx;" style="margin-top: 80rpx; height:100rpx; border-radius: 15rpx; text-align: center; border: 2rpx solid; border-color:{{isFocus? 'rgb(62,168,244)':'rgb(125,159,195)'}};" bindfocus='getFocus' bindblur = 'loseFocus'></input>
+        <button class="btn_ok" form-type="submit" bindtap="powerDrawer" data-statu="close">确定</button>  
+      </form>
+     </view>
+   </view>
+</view>  
+
+<!--详情页面-->  
+

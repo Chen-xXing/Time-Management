@@ -1,0 +1,236 @@
+/* pages/hours/hours.wxss */
+/*
+ * 淡蓝：62,168,244
+ * 浅绿：113,212,73
+ * 深绿：0,178,145
+ * 浅灰：125,159,195
+ * 青色：104,200,185
+ * 黄橙：212,214,84
+ * 小紫：186,127,208
+ * 小粉：252,145,162
+ * 小黄：254,209,52
+ * 橙色：254,75,0
+ * 小红：246,49,62
+ * 橙黄：254,157,21
+ */
+#container{
+	width: 100%;
+	min-height: 1200rpx;
+}
+#top{
+  width: 100%;
+  height: 144rpx;
+  text-align: center;
+}
+#month{
+  font-size: 50rpx;
+  height: 45%;
+}
+#login{
+  float: right;
+  margin-top: 10rpx;
+  margin-right: 10rpx;
+  font-size: 30rpx;
+}
+#year{
+  font-size: 25rpx;
+  height: 25%;
+  color: rgb(120,120,120);
+}
+#showWeek{
+  height: 25%;
+}
+#body{
+  width: 100%;
+  height: 960rpx;
+}
+.week{
+  float: left;
+	width: 14.2%; 
+	text-align: center;
+  font-size: 20rpx;
+  padding-top: 2%;
+}
+.row{
+  border-top-style: solid;
+  border-top-color: rgb(209,209,209);
+  border-top-width: 2rpx;
+  height: 192rpx;
+  width: 100%;
+  float: top;
+}
+.smallrow{
+  border-top-style: solid;
+  border-top-color: rgb(209,209,209);
+  border-top-width: 2rpx;
+  height: 16.67%;
+  width: 100%;
+}
+.day{
+  padding-top: 2rpx;
+  float: left;
+  width: 14.2%;
+  text-align: center;
+  font-size: 23rpx;
+  margin-bottom: 8rpx;
+}
+.dayChoose{
+  padding-top: 2rpx;
+  float: left;
+  width: 14.2%;
+  text-align: center;
+  font-size: 23rpx;
+  margin-bottom: 8rpx;
+  background: rgb(200,200,200);
+}
+#footer{
+  width: 100%;
+  height: 90rpx;
+  border-top-style: solid;
+  border-top-color: rgb(209,209,209);
+  border-top-width: 2rpx;
+  padding-top: 5rpx;
+}
+.choose{
+  width: 20%;
+  float: left;
+  margin-top: 2%;
+  margin-left: 13%;
+  text-align: center;
+  font-size: 33rpx;
+  padding-top: 10rpx;
+}
+#agenda{
+  color: #22A7F6;
+}
+.todayb{
+	width: 35rpx;
+  height: 16%;
+	border-radius: 50%;
+	text-align: center;
+	color: #fff;
+	background-color: #22A7F6;
+	margin: 0 auto;
+}
+.todaya{
+  width: 35rpx;
+  height: 16%;
+	border-radius: 50%;
+	text-align: center;
+	color: #fff;
+	background-color: rgb(239,50,6);
+	margin: 0 auto;
+}
+.duty{
+  float: left;
+  color: rgb(255, 255, 255);
+  margin: 1rpx;
+  font-size: 20rpx;
+  padding: 0rpx;
+  text-align: center;
+  height: 28rpx;
+}
+#add{
+  padding-bottom: 20rpx;
+  text-align: buttom;
+  margin-top: 50rpx;
+  font-size: 25rpx;
+  margin-left:72%;
+  background: rgba(72, 78, 72, 0.384);
+  color: rgb(255, 255, 255);
+  width: 200rpx;
+  height: 60rpx;
+  line-height: 10rpx;
+  
+}
+
+/*以下为遮罩层css*/
+
+/*button*/  
+.btn {  
+  width: 80%;  
+  padding: 20rpx 0;  
+  border-radius: 10rpx;  
+  text-align: center;  
+  margin: 40rpx 10%;  
+  background: #000;  
+  color: #fff;  
+}  
+  
+/*mask*/  
+.drawer_screen {  
+  width: 100%;  
+  height: 100%;  
+  position: fixed;  
+  top: 0;  
+  left: 0;  
+  z-index: 1000;  
+  background: #000;  
+  opacity: 0.5;  
+  overflow: hidden;  
+}  
+  
+/*content*/  
+.drawer_box {  
+  width: 650rpx;  
+  overflow: hidden;  
+  position: fixed;  
+  top: 50%;  
+  left: 0;  
+  z-index: 1001;  
+  background: #FAFAFA;  
+  margin: -150px 50rpx 0 50rpx;  
+  border-radius: 3px;  
+}  
+  
+.drawer_title{  
+  padding:15rpx;  
+  font: 20rpx "microsoft yahei";  
+  text-align: center;  
+}  
+.drawer_content {  
+  height: 500rpx;  
+  overflow-y: scroll; /*超出父盒子高度可滚动*/  
+  padding: 0 50rpx;
+}  
+  
+.btn_ok{  
+  margin-top: 95rpx;
+  padding: 10rpx;  
+  font: 35rpx "microsoft yahei";  
+  text-align: center;  
+  border: 1rpx solid #E8E8EA;  
+  color: #3CC51F;  
+}  
+
+.chooseAdd{
+  width: 49%;
+  float: left;
+  height: 40rpx;
+  text-align: center; 
+  font: 40rpx;
+
+  margin: 10rpx 0;
+}
+.col0{
+  -webkit-box-flex:0;box-flex:0;
+  height: 60rpx;
+  width: 500rpx;
+  
+  margin-top: 20rpx;
+  line-height: 60rpx;
+  padding-left: 20rpx;
+}
+.color{
+  width: 40rpx;
+  height: 40rpx;
+  background: red;
+  margin-left: 18rpx;
+  margin-top: 20rpx;
+  float: left;
+}
+.agendaRow{
+  min-height: 60rpx;
+  border-bottom: 2rpx gray solid;
+  padding-top: 10rpx;
+}

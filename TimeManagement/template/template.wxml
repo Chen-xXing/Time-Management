@@ -1,0 +1,111 @@
+<!-- 由于不同day间css控制差异过大，用wx:for相当困难，故最有效率的办法就是这样罗列出所有的day格以作为模板，以下由python代码生成 -->
+<template name="calendar">
+	<scroll-view scroll-y style = "height: 960rpx;">   
+	<view class="{{smallSwitch?'smallrow':'row'}}" style = "height: {{smallSwitch?(dutyList0.height>3? dutyList0.height*35 + 45: 160):(dutyList0.height>4? dutyList0.height*35 + 45: 192)}}rpx;">
+  		<view class = "day"   hover-class = "dayChoose" data-statu="open" data-day = '1' style="{{'color:gray;'}}">
+  			<view>00:30</view>
+ 		</view>
+  		<view class = "day"   hover-class = "dayChoose" data-statu="open" data-day = '2' style="{{'color:gray;'}}">
+  			<view>01:30</view>
+ 		</view>
+ 		<view class = "day"   hover-class = "dayChoose" data-statu="open" data-day = '3' style="{{'color:gray;'}}">
+  			<view>02:30</view>
+  		</view>
+  		<view class = "day"   hover-class = "dayChoose" data-statu="open" data-day = '4' style="{{'color:gray;'}}">
+  			<view>03:30</view>
+ 		 </view>
+  		<view class = "day"   hover-class = "dayChoose" data-statu="open" data-day = '5' style="{{'color:gray;'}}">
+  			<view>04:30</view>
+  		</view>
+ 		<view class = "day"   hover-class = "dayChoose" data-statu="open" data-day = '6' style="{{'color:gray;'}}">
+  			<view>05:30</view>
+  		</view>
+		<!--日程行，通过遍历列表完成-->
+
+		<view class="dutyRow">
+			<view wx:for="{{dutyList0.list}}" wx:key="item.position" style="float:left; background:{{item.color}};margin-left:{{16.66*item.position}}%;width:{{item.size*(13.4+item.size*0.15)}}%;" class = 'duty'>{{item.id}}
+			</view>
+		</view>		
+	</view>
+	
+	
+	<view class="{{smallSwitch?'smallrow':'row'}}" style = "height: {{smallSwitch?(dutyList1.height>3? dutyList1.height*35 + 45: 160):(dutyList1.height>4? dutyList1.height*35 + 45: 192)}}rpx;">
+  		<view class = "day"   hover-class = "dayChoose" data-statu="open" data-day = '7' style="{{'color:gray;'}}">
+  			<view>06:30</view>
+		</view>
+		<view class = "day"   hover-class = "dayChoose" data-statu="open" data-day = '8' style="{{'color:gray;'}}">
+			<view>07:30</view>
+		</view>
+  		<view class = "day"   hover-class = "dayChoose" data-statu="open" data-day = '9' style="{{'color:gray;'}}">
+  			<view>08:30</view>
+  		</view>
+  		<view class = "day"   hover-class = "dayChoose" data-statu="open" data-day = '10' style="{{'color:gray;'}}">
+  			<view>09:30</view>
+  		</view>
+  		<view class = "day"   hover-class = "dayChoose" data-statu="open" data-day = '11' style="{{'color:gray;'}}">
+  			<view>10:30</view>
+  		</view>
+  		<view class = "day"   hover-class = "dayChoose" data-statu="open" data-day = '12' style="{{'color:gray;'}}">
+  			<view>11:30</view>
+  		</view>
+		<view class="dutyRow">
+			<view wx:for="{{dutyList1.list}}" wx:key="item.name" style="float:left; background:{{item.color}};margin-left:{{16.66*item.position}}%;width:{{item.size*(13.4+item.size*0.15)}}%;" class = 'duty'>{{item.name}}
+			</view>
+		</view>		
+	</view>
+	
+	
+	<view class="{{smallSwitch?'smallrow':'row'}}" style = "height: {{smallSwitch?(dutyList2.height>3? dutyList2.height*35 + 45: 160):(dutyList2.height>4? dutyList2.height*35 + 45: 192)}}rpx;">
+  		<view class = "day"   hover-class = "dayChoose" data-statu="open" data-day = '13' style="{{'color:gray;'}}">
+  			<view>12:30</view>
+  		</view>
+  		<view class = "day"   hover-class = "dayChoose" data-statu="open" data-day = '14' style="{{'color:gray;'}}">
+  			<view>13:30</view>
+  		</view>
+		<view class = "day"   hover-class = "dayChoose" data-statu="open" data-day = '15' style="{{'color:gray;'}}">
+			<view>14:30</view>
+		</view>
+		<view class = "day"   hover-class = "dayChoose" data-statu="open" data-day = '16' style="{{'color:gray;'}}">
+			<view>15:30</view>
+		</view>
+		<view class = "day"   hover-class = "dayChoose" data-statu="open" data-day = '17' style="{{'color:gray;'}}">
+			<view>16:30</view>
+		</view>
+		<view class = "day"   hover-class = "dayChoose" data-statu="open" data-day = '18' style="{{'color:gray;'}}">
+			<view>17:30</view>
+		</view>
+		<view class="dutyRow">
+			<view wx:for="{{dutyList2.list}}" wx:key="item.position" style="float:left; background:{{item.color}};margin-left:{{16.66*item.position}}%;width:{{item.size*(13.4+item.size*0.15)}}%;" class = 'duty'>{{item.id}}
+			</view>
+		</view>		
+	</view>
+	
+	
+	
+	<view class="{{smallSwitch?'smallrow':'row'}}" style = "height: {{smallSwitch?(dutyList3.height>3? dutyList3.height*35 + 45: 160):(dutyList3.height>4? dutyList3.height*35 + 45: 192)}}rpx;">
+		<view class = "day"   hover-class = "dayChoose" data-statu="open" data-day = '19' style="{{'color:gray;'}}">
+			<view>18:30</view>
+		</view>
+		<view class = "day"   hover-class = "dayChoose" data-statu="open" data-day = '20' style="{{'color:gray;'}}">
+			<view>19:30</view>
+		</view>
+		<view class = "day"   hover-class = "dayChoose" data-statu="open" data-day = '21' style="{{'color:gray;'}}">
+			<view>20:30</view>
+		</view>
+		<view class = "day"   hover-class = "dayChoose" data-statu="open" data-day = '22' style="{{'color:gray;'}}">
+			<view>21:30</view>
+		</view>
+		<view class = "day"   hover-class = "dayChoose" data-statu="open" data-day = '23' style="{{'color:gray;'}}">
+			<view>22:30</view>
+		</view>
+		<view class = "day"   hover-class = "dayChoose" data-statu="open" data-day = '24' style="{{'color:gray;'}}">
+			<view>23:30</view>
+		</view>	
+		<view class="dutyRow">
+			<view wx:for="{{dutyList3.list}}" wx:key="item.position" style="float:left; background:{{item.color}};margin-left:{{16.66*item.position}}%;width:{{item.size*(13.4+item.size*0.15)}}%;" class = 'duty'>{{item.id}}
+			</view>
+		</view>		
+	</view>
+	
+</scroll-view>
+</template>
